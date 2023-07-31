@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #222435;
+	font-family: 'Roboto', sans-serif;
+}
+
+/* - - - - FORMULARIO - - - - */
+h1 {
+	color: #7d83b9;
+	text-align: center;
+	margin: 1em;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 400px;
+	width: 100vw;
+	height: 40px;
+	margin: 3em auto;
+}
+
+form input[type="text"] {
+	background: #2d3046;
+	color: white;
+	width: 70%;
+	height: 40px;
+	padding: 10px 0 10px 15px;
+	border: none;
+	border-radius: 5px 0 0 5px;
+}
+form input[type="text"]:focus {
+	outline: none;
+}
+
+form input[type="submit"] {
+	background: #235f21;
+	color: white;
+	width: 30%;
+	height: 40px;
+	padding: 10px 2px;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+}
+form input[type="submit"]:hover {
+	background: #236f21;
+	box-shadow: 0 0 20px #237f2188;
+}
+
+
+/* - - - - LISTA - - - - */
+
+.img {
+	max-width: 20em;
+	width: 90vw;
+	margin: auto;
+}
+
+#list {
+	width: 100vw;
+}
+
+h2 {
+	color: #7d85d0;
+	text-align: center;
+}
+
+#tasks {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em;
+}
+
+article {
+	display: flex;
+	align-items: center;
+	background: #363b65;
+	width: 300px;
+	height: 35px;
+	margin: 0.5em auto;
+	border-radius: 7px;
+	overflow: hidden;
+}
+article > span {
+	width: 75%;
+	padding: 10px 12px;
+}
+article > button {
+	background: #353b55;
+	color: #222;
+	width: 25%;
+	height: 100%;
+	border: none;
+	transition: 0.3s ease;
+}
+article > button:hover {
+	background: darkred;
+}
+.done {
+	opacity: 0.4;
+}
+.done span {
+	color: #222;
+	text-decoration: line-through;
+}
+
+#erase-all {
+	display: block;
+	background: darkred;
+	font-size: 1.2em;
+	font-weight: bold;
+	width: 180px;
+	margin: 2em auto;
+	padding: 16px 18px;
+	border: none;
+	border-radius: 5px;
+}
+
+.red {
+	display: none;
+	background: red;
+}
