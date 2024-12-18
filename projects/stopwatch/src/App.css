@@ -1,0 +1,50 @@
+* {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e2ebf3;
+}
+
+.stopwatch {
+  background-color: #a9ffe2;
+  text-align: center;
+  margin: 50px 150px;
+  padding: 30px;
+  border: solid;
+  border-radius: 10px;
+}
+
+.stopwatch p {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+button {
+  font-size: 1.2em;
+  min-width: 100px;
+  padding: 2px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px #00000037;
+  cursor: pointer;
+}
+.run-btn {
+  background-color: #4bec4b;
+}
+.run-btn:hover {
+  background-color: #3fd93f;
+}
+.reset-btn {
+  background-color: #ffa494;
+}
+.reset-btn:hover {
+  background-color: #ec8775;
+}

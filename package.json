@@ -1,10 +1,7 @@
 {
   "name": "React",
-  "lockfileVersion": 3,
-  "requires": true,
   "private": true,
   "workspaces": [
     "projects/*"
-  ],
-  "packages": {}
+  ]
 }
