@@ -8,47 +8,71 @@ function App() {
 
   //double and shuffle card's image paths
   useEffect(() => {
-    let allCards = ['./capybara.jpg', './horse.jpeg', './panda.jpg', './sloth.webp', './tiger.jpg', './toucan.jpg', './turtle.jpg', './zebra.jpg']
+    let allCards = [
+      { url: './capybara.jpg', paired: false },
+      { url: './horse.jpeg', paired: false },
+      { url: './panda.jpg', paired: false },
+      { url: './sloth.webp', paired: false },
+      { url: './tiger.jpg', paired: false },
+      { url: './toucan.jpg', paired: false },
+      { url: './turtle.jpg', paired: false },
+      { url: './zebra.jpg', paired: false }
+    ]
     allCards = [...allCards, ...allCards]
     shuffle(allCards)
     setCards(allCards)
   }, [])
 
-  
   function handleFlip(key) {
-    if (!flippedCards.some(card => card.index === key)) {
-      setFlippedCards(prev => [...prev, {index: key, path: cards[key]}])
+    if (!flippedCards.some(card => card.index === key) && flippedCards.length < 2) {
+      setFlippedCards(prev => [...prev, { index: key, path: cards[key].url }])
     }
   }
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (flippedCards.length > 0 && flippedCards.length % 2 === 0) {
-      if (flippedCards[flippedCards.length-1].path === flippedCards[flippedCards.length-2].path) {
-        console.log('par')
-      } else {
-        setTimeout(() => {
-          setFlippedCards(prev => prev.slice(0, -2))
-        }, 1000)
+      if (flippedCards[flippedCards.length - 1].path === flippedCards[flippedCards.length - 2].path) {
+        setCards(prev => {
+          const newCards = [...prev]
+          newCards[flippedCards[flippedCards.length - 1].index].paired = true
+          newCards[flippedCards[flippedCards.length - 2].index].paired = true
+          return newCards
+        })
       }
+
+      setTimeout(() => {
+        setFlippedCards([])
+      }, 1000)
     }
-  }, [flippedCards, cards]) */
+  }, [flippedCards])
+
+  if (cards.every(card => card.paired)) {
+    return <div>Terminou</div>
+  }
 
   return (
     <div id="board">
       {
         cards.map((card, i) => {
-          const isFlipped = flippedCards.some(card => card.index === i)
+          const isFlipped = flippedCards.some(flippedCard => flippedCard.index === i) || card.paired
 
           return (
             <div
               key={i}
               className={`card ${isFlipped ? 'flipped' : ''}`}
               onClick={() => handleFlip(i)}
-              style={{backgroundImage: isFlipped ? `url(${card})` : ''}}
-            />
+            >
+              <div className="card-flip">
+                <div className="card-front">memorize</div>
+                <div
+                  className="card-back"
+                  style={{ backgroundImage: isFlipped ? `url(${card.url})` : '' }}
+                ></div>
+              </div>
+            </div>
           )
         })
-      } 
+      }
     </div>
   )
 }
